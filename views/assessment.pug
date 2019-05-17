@@ -1,0 +1,13 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/assessment.css')
+  body
+    h1 あなたのいいところは？
+    p 診断したい名前を入れてください
+    input#user-name(type="text" size="40" maxlength="20")
+    button#assessment 診断する
+    #result-area
+    #tweet-area
+      script(async src="https://platform.twitter.com/widgets.js" charset="utf-8")
