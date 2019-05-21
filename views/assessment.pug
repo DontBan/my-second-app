@@ -6,8 +6,12 @@ html
   body
     h1 あなたのいいところは？
     p 診断したい名前を入れてください
-    input#user-name(type="text" size="40" maxlength="20")
-    button#assessment 診断する
-    #result-area
-    #tweet-area
-      script(async src="https://platform.twitter.com/widgets.js" charset="utf-8")
+    form(action="" method="post")
+      input#user-name(type="text" name="name" size="40" maxlength="20")
+      button#assessment 診断する
+    if answer
+      h3 診断結果
+      p= answer
+      - var hrefValue = 'https://twitter.com/intent/tweet?button_hashtag=' + encodeURIComponent('あなたのいいところ') + '&ref_src=twsrc%5Etfw';
+      a.twitter-hashtag-button(href=hrefValue data-text=answer data-lang='ja' data-show-count='false') #あなたのいいところ をツイートする
+    script(async src="https://platform.twitter.com/widgets.js" charset="utf-8")
